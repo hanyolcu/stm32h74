@@ -5,14 +5,6 @@ sUart_Frame_transmit gTx_Buffer;
 uint8_t uart_header[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
 uint8_t rx_buffer[256];
 
-int Led_init(void){
-    RCC->AHB4ENR |= RCC_AHB4ENR_GPIOBEN; // Enable GPIOB clock
-
-    GPIOB->MODER &= ~(0x3 << (0 * 2)); // Clear mode for PB0
-    GPIOB->MODER |= (0x1 << (0 * 2)); // Set PB0 to output
-
-    return 0;
-};
 
 int Uart_init(void){
     RCC->AHB4ENR|= 0x08; //Enable clock for GPIO port D
